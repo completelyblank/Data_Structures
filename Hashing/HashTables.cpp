@@ -84,22 +84,45 @@ class HashTable
             }
         }
 
-        void deleteWord(int k)
-        {
-            int index = hashFunction(k);
-            HashNode* current = buckets[index];
-            while (current != NULL) 
-            {
-                if (current->key == k) 
-                {
-                    HashNode* temp = current; //temp pointer made at current 
-                    current = current->next; //current traverses
-                    delete temp; //deletes temp so current will be at the place we want without breaking the linked list 
-                    cout << "Delete Sucessful!" << endl;
-                }
-            }
-            cout << "Delete unsuccessful!" << endl;
-        }
+        void deleteWord(int ID) 
+		{
+			int index = hashFunction(ID);
+			if(buckets[index] == 0) 
+			{
+				cout << "Item not found";
+			} 
+			
+			else 
+			{
+				HashNode* current = buckets[index];
+				HashNode* prev = NULL;
+				while(current != NULL && current->key != ID) 
+				{
+					prev = current;
+					current = current->next;
+				}
+				
+				if(current == NULL) 
+				{
+					cout << "Item not found";
+				} 
+				else 
+				{
+					if(prev == NULL) 
+					{
+						buckets[index] = current->next;
+					} 
+					
+					else 
+					{
+						prev->next = current->next;
+					}
+					
+					delete current;
+					cout << ID << " Deleted." << endl;
+				}
+			}
+	}
 
         ~HashTable() //loops through buckets and deletes them one by one 
         {
