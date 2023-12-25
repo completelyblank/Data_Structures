@@ -1,3 +1,7 @@
+![image](https://github.com/completelyblank/Data_Structures/assets/105001837/cbb66073-fcda-4cc0-9fd2-dbd94dbec0e8)
+
+
+
 # Data Structures and Algorithms Repository
 
 Welcome to the Data Structures and Algorithms Repository! This repository contains various data structure implementations and algorithms in C++.
